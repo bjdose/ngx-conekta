@@ -1,27 +1,70 @@
-# NgxConekta
+A library for loading Conekta for Angular 9.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.9.
 
-## Development server
+[![Support](https://img.shields.io/badge/support-Angular%209-black.svg)](https://www.npmjs.com/package/ngx-conekta)
+[![npm version](https://badge.fury.io/js/ngx-conekta.svg)](https://badge.fury.io/js/ngx-conekta)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Installation
 
-## Code scaffolding
+`ngx-conekta` is available via [npm](https://www.npmjs.com/package/ngx-conekta) and [yarn](https://yarnpkg.com/en/package/ngx-conekta)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Using npm:
+```bash
+$ npm install ngx-conekta --save
+```
 
-## Build
+Using yarn:
+```bash
+$ yarn add ngx-conekta
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Getting Started
 
-## Running unit tests
+Import `ConektaModule` in  in the root module(`AppModule`):   
+   
+```typescript   
+// Import library module
+import { ConektaModule } from 'ngx-conekta';
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@NgModule({
+  imports: [
+    // ...
+    ConektaModule.forRoot({
+      publicKey: 'my-public-key'
+    })
+  ]
+})
+export class AppModule { }
+```
 
-## Running end-to-end tests
+## Usage
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+### Loading conekta module
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Load conekta module only when it needed.
+
+TS
+
+```typescript
+import { ConektaLoader } from 'ngx-conekta';
+
+constructor(private _loader: ConektaLoader) {}
+
+// lazy loading
+loadConekta() {
+  this._loader
+  .load()
+  .then(() => {
+    // conekta loaded
+  })
+  .catch(() => {
+    // error loading conekta
+  });
+}
+```
+
+## License
+
+##### The MIT License (MIT)

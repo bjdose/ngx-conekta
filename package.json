@@ -5,6 +5,13 @@
     "name": "Brayan Salcedo",
     "email": "brayanjsalcedo@gmail.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bjdose/ngx-conekta.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bjdose/ngx-conekta/issues"
+  },
   "keywords": [
     "ngx",
     "conekta",
